@@ -1,0 +1,15 @@
+{
+  "name": "delivery",
+  "type": "module",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "bullmq": "^5.70.4",
+    "express": "^5.2.1",
+    "ioredis": "^5.10.0"
+  }
+}
