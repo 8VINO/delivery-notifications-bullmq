@@ -1,5 +1,6 @@
 import { Worker } from "bullmq";
 import { connection } from "../queue/connection.js";
+import  enviarNotificacao from "../services/notification_service.js";
 
 new Worker("NotificationQueue", async (job) => {
 
@@ -13,6 +14,7 @@ new Worker("NotificationQueue", async (job) => {
 
   const mensagem = mensagens[status];
 
+  await enviarNotificacao(`Pedido ${orderId} - ${status.toUpperCase()}`, mensagem);
   console.log(`Usuário ${userId} - Pedido ${orderId}: ${mensagem}`);
 
 }, { connection });
